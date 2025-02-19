@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         // ค้นหาผู้ใช้ในฐานข้อมูล
-        $stmt = $pdo->prepare("insert into users (username,password,name,lname,sex,birth,position_id)values('".$_POST['username']."','". $hashed_password."','".$_POST['name']."','".$_POST['lname']."','".$_POST['sex']."','".$_POST['birth']."','".$_POST['position_id']."')");
+        $stmt = $pdo->prepare("insert into users (username,password,name,lname,sex,birth,position_id)values('".$_POST['username']."','".$_POST['password']."','".$_POST['name']."','".$_POST['lname']."','".$_POST['sex']."','".$_POST['birth']."','".$_POST['position_id']."')");
     
         if ($stmt->execute()) {
             echo "<script>alert('เพิ่มข้อมูลสำเร็จ!'); window.location.href='add_user.php';</script>";
